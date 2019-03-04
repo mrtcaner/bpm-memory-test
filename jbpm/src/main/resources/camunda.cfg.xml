@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration" class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+
+		<property name="jdbcDriver" value="org.h2.Driver" />
+		<property name="jdbcUrl"    value="jdbc:h2:tcp://localhost/~/camunda-memory" />
+		<property name="jdbcUsername" value="SA" />
+		<property name="jdbcPassword" value="" />
+        
+        <property name="jdbcMaxActiveConnections" value="100" />
+        <property name="jdbcMaxIdleConnections" value="10" />
+
+        <!-- <property name="dataSource" ref="dataSource" /> -->
+
+		<!-- Database configurations -->
+		<property name="databaseSchemaUpdate" value="create-drop" />
+
+		<!-- job executor configurations -->
+		<property name="jobExecutorActivate" value="true" />
+
+	</bean>
+
+</beans>
